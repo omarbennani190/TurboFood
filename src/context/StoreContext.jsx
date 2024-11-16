@@ -1,4 +1,4 @@
-import React ,{ createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { food_list } from "../assets/frontend_assets/assets";
 
 export const StoreContext = createContext(null)
@@ -8,7 +8,7 @@ const StoreContextProvider = (props) => {
 
     const addToCard = (itemId) => {
         if (!itemId || typeof itemId !== 'string') {
-            console.error('Invalid itemId passed to addToCard:', itemId);            
+            console.error('Invalid itemId passed to addToCard:', itemId);
         }
         // check if the user is adding the product in the card so we will create one entry
         if (!cardItems[itemId]) {
@@ -23,6 +23,17 @@ const StoreContextProvider = (props) => {
         setCardItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
     }
 
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cardItems) {
+            if(cardItems[item]>0){
+                let itemInfo = food_list.find((product) => product.id === item);
+                totalAmount += itemInfo.price * cardItems[item];
+            }
+        }
+        return totalAmount;
+    }
+
     useEffect(() => {
         console.log(cardItems)
     }, [cardItems]) //chaque modif
@@ -32,7 +43,8 @@ const StoreContextProvider = (props) => {
         cardItems,
         setCardItems,
         addToCard,
-        removeFromCard
+        removeFromCard,
+        getTotalCartAmount
     }
 
     return (
