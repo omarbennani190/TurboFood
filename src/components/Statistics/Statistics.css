@@ -1,0 +1,39 @@
+/* General Styles for Statistics Section */
+.statistics-section {
+    background-color: #ff914d;
+    color: white;
+    padding: 50px 0;
+    border-radius: 20px;
+  }
+  
+  .counter h3 {
+    font-size: 36px; /* Adjusted size for headings */
+    font-weight: bold;
+  }
+  
+  .counter p {
+    font-size: 14px; /* Smaller description text */
+    font-weight: 500;
+  }
+  
+  /* Media Queries for Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .counter h3 {
+      font-size: 28px; /* Smaller heading for tablets and mobile */
+    }
+  
+    .counter p {
+      font-size: 12px; /* Smaller text for descriptions */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .counter h3 {
+      font-size: 24px; /* Even smaller heading for smaller screens */
+    }
+  
+    .counter p {
+      font-size: 10px; /* Further reduced size for descriptions */
+    }
+  }
+  

@@ -1,0 +1,112 @@
+/* Header Section */
+.header {
+    height: 34vw;
+    margin: 30px auto;
+    background: url('/src/assets/frontend_assets/header_img.png') no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Header Content */
+.header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    gap: 1.5vw;
+    max-width: 50%; /* Limit the width of the content */
+    bottom: 10%;
+    left: 6vw;
+    color: white;
+    text-align: left;
+    padding: 0 2%; /* Ensure text stays inside the image on smaller screens */
+    box-sizing: border-box;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Heading Styles */
+.header-contents h2 {
+    font-weight: 500;
+    font-size: max(4.5vw, 22px);
+    color: white;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+/* Paragraph Styles */
+.header-contents p {
+    font-weight: 1vw;
+    color: white;
+    font-size: max(1.5vw, 16px);
+    line-height: 1.5;
+    max-width: 100%;
+}
+
+/* Button Styles */
+.header-contents button {
+    border: none;
+    color: #747474;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: white;
+    font-size: max(1vw, 13px);
+    border-radius: 50px;
+}
+
+/* Ensure space between header and login card */
+.header + .login-card {
+    margin-top: 50px; /* Adjust the margin as needed */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1050px) {
+    .header {
+        height: 38vw;
+    }
+
+    .header-contents {
+        max-width: 45%;
+        bottom: 5%;
+        left: 5%;
+        gap: 2vw;
+        padding: 0 5%;
+    }
+
+    .header-contents h2 {
+        font-size: 5vw;
+    }
+
+    .header-contents p {
+        font-size: 3.5vw;
+    }
+
+    .header-contents button {
+        font-size: 3.5vw;
+        padding: 2vw 4vw;
+    }
+}
+
+@media (max-width: 750px) {
+    .header-contents {
+        max-width: 65%;
+    }
+
+    .header-contents h2 {
+        font-size: 6vw;
+    }
+
+    .header-contents p {
+        font-size: 4vw;
+        display: none; /* Hide description on small screens */
+    }
+
+    .header-contents button {
+        font-size: 4vw;
+        padding: 2vw 4vw;
+    }
+}
