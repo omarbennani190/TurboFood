@@ -4,6 +4,7 @@
     margin: 30px auto;
     background: url('/src/assets/frontend_assets/header_img.png') no-repeat;
     background-size: cover;
+    border-radius: 15px;
     position: relative;
     display: flex;
     justify-content: center;
