@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 import './FoodItem.css'
 import { assets } from './../../assets/frontend_assets/assets';
 import { StoreContext } from '../../context/StoreContext';
-// import { assets } from './../../../../assets/frontend_assets/assets';
 
 const FoodItem = ({ id, name, price, description, image }) => {
     // const [itemCount, setItemCount] = useState(0)
-    const { cardItems, addToCard, removeFromCard } = useContext(StoreContext)
+    const { cardItems, addToCart, removeFromCard,url } = useContext(StoreContext)
 
     return (
         <div className="food-item">
             <div className="food-item-img-container">
-                <img src={image} alt="food image" className="food-item-image" />
+                <img src={url+"/images/"+image} alt="food image" className="food-item-image" />
                 {!cardItems[id]
-                    ?<img className="add" onClick={()=>addToCard(id)} src={assets.add_icon_white} alt="white icon" />
+                    ?<img className="add" onClick={()=>addToCart(id)} src={assets.add_icon_white} alt="white icon" />
                     :<div className="food-item-counter">
                         <img onClick={()=>removeFromCard(id)} src={assets.remove_icon_red} alt="" />
                         <p>{cardItems[id]}</p>
-                        <img onClick={()=>addToCard(id)} src={assets.add_icon_green} alt="" />
+                        <img onClick={()=>addToCart(id)} src={assets.add_icon_green} alt="" />
                     </div>
                 }
             </div>
@@ -37,7 +36,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
 // const FoodItem = ({ id, name, price, description, image }) => {
 
 //     const [itemCount, setItemCount] = useState(0)
-//     // const { cardItems, addToCard, removeFromCard } = useContext(StoreContext)
+//     // const { cardItems, addToCart, removeFromCard } = useContext(StoreContext)
 
 //     console.log('FoodItem received id:', id)
 //     // console.log('FoodItem received cardItems:', cardItems)
